@@ -1,0 +1,1033 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: sidebar;
+  max-width: 70px;
+  min-width: 70px;
+  min-height: 100vh;
+  background-color: #282155;
+}
+
+nav .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  background-color: #282155;
+  margin: 10px 0px;
+  cursor: pointer;
+  background-color: #282155;
+}
+
+nav .item .select {
+  position: absolute;
+  right: -80px;
+  width: 80px;
+  height: 50px;
+  background-color: #3e396f;
+  border-radius: 20% / 50%;
+  z-index: 2;
+  opacity: 0;
+}
+
+nav .item #homeselect {
+  opacity: 0;
+}
+
+nav .item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+nav .item a svg {
+  width: 20px;
+  height: 20px;
+}
+
+nav .item a svg path {
+  fill: #8783A7;
+}
+
+nav #home {
+  margin-top: 100px;
+}
+
+nav #home a svg path {
+  fill: #FEFEFD;
+}
+
+nav #settings {
+  position: absolute;
+  bottom: 0px;
+  background-color: #3e396f;
+}
+
+nav .item:hover a svg path {
+  fill: #FEFEFD;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70px auto;
+      grid-template-columns: 70px auto;
+  -ms-grid-rows: 70px auto;
+      grid-template-rows: 70px auto;
+      grid-template-areas: "sidebar header" "sidebar main";
+  background-color: #3e396f;
+}
+
+body header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "search user";
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: header;
+  background-color: #3e396f;
+}
+
+body header .search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #3e396f;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: search;
+  padding-left: 20px;
+}
+
+body header .search-container input {
+  width: 80%;
+  height: 40px;
+  border-radius: 50px;
+  padding-left: 40px;
+  outline: none;
+  border: none;
+  background-color: #353066;
+  color: #A8A4C5;
+}
+
+body header .search-container input::-webkit-input-placeholder {
+  color: #A8A4C5;
+}
+
+body header .search-container input:-ms-input-placeholder {
+  color: #A8A4C5;
+}
+
+body header .search-container input::-ms-input-placeholder {
+  color: #A8A4C5;
+}
+
+body header .search-container input::placeholder {
+  color: #A8A4C5;
+}
+
+body header .search-container svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  margin-left: 10px;
+}
+
+body header .search-container svg path {
+  fill: #8783A7;
+}
+
+body header .user-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background-color: #3e396f;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: user;
+  padding-right: 10px;
+}
+
+body header .user-container .chat, body header .user-container .bell, body header .user-container .user-avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #3e396f;
+  margin: 0px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body header .user-container .chat svg, body header .user-container .bell svg, body header .user-container .user-avatar svg {
+  width: 20px;
+  height: 20px;
+}
+
+body header .user-container .chat svg path, body header .user-container .bell svg path, body header .user-container .user-avatar svg path {
+  fill: #8783A7;
+}
+
+body header .user-container .user-avatar {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 60px;
+  background-color: #353066;
+}
+
+body header .user-container .user-avatar img {
+  border-radius: 10px;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  width: 40px;
+  height: 40px;
+}
+
+body header .user-container .chat:hover, body header .user-container .bell:hover, body header .user-container .user-avatar:hover {
+  background-color: #353066;
+}
+
+body header .user-container .chat:hover svg path, body header .user-container .bell:hover svg path, body header .user-container .user-avatar:hover svg path {
+  fill: #FEFEFD;
+}
+
+body main {
+  background-color: #3e396f;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: main;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 90px auto;
+      grid-template-rows: 90px auto;
+      grid-template-areas: "select" "wrapper";
+}
+
+body main .select-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 20px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: select;
+  background-color: #3e396f;
+}
+
+body main .select-section .select-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #3e396f;
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body main .select-section .select-title h1 {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #E8E8ED;
+}
+
+body main .select-section .select-box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #3e396f;
+}
+
+body main .select-section .select-box-container select {
+  width: 130px;
+  height: 40px;
+  background-color: #3e396f;
+  border: 1px solid #8783A7;
+  color: #A8A4C5;
+  padding: 0px 8px;
+  border-radius: 5px;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+body main .content-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: wrapper;
+  background-color: #3e396f;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4] 1.5fr;
+      grid-template-columns: repeat(4, 1fr) 1.5fr;
+  -ms-grid-rows: 1fr 1.5fr;
+      grid-template-rows: 1fr 1.5fr;
+      grid-template-areas: "confirmed active recovered decreased advice" "top top top stats stats";
+  grid-row-gap: 20px;
+  grid-column-gap: 15px;
+  padding: 0px 20px 20px;
+}
+
+body main .content-wrapper .status-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #353066;
+}
+
+body main .content-wrapper .status-card .title, body main .content-wrapper .status-card .number {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #A8A4C5;
+}
+
+body main .content-wrapper .status-card .number {
+  font-size: 30px;
+  color: #E8E8ED;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+body main .content-wrapper .status-card .increment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .content-wrapper .status-card .increment svg {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+}
+
+body main .content-wrapper .status-card .increment .value {
+  font-size: 15px;
+}
+
+body main .content-wrapper .status-card .graph-container {
+  height: 50%;
+  width: 100%;
+}
+
+body main .content-wrapper #confirmed {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: confirmed;
+}
+
+body main .content-wrapper #confirmed .increment svg {
+  color: #a4456b;
+}
+
+body main .content-wrapper #confirmed .increment .value {
+  color: #a4456b;
+}
+
+body main .content-wrapper #active {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: active;
+}
+
+body main .content-wrapper #active .increment svg {
+  color: #2d71c6;
+}
+
+body main .content-wrapper #active .increment .value {
+  color: #2d71c6;
+}
+
+body main .content-wrapper #recovered {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: recovered;
+}
+
+body main .content-wrapper #recovered .increment svg {
+  color: #72ae79;
+}
+
+body main .content-wrapper #recovered .increment .value {
+  color: #72ae79;
+}
+
+body main .content-wrapper #decreased {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: decreased;
+}
+
+body main .content-wrapper #decreased .increment svg {
+  color: #608f60;
+}
+
+body main .content-wrapper #decreased .increment .value {
+  color: #608f60;
+}
+
+body main .content-wrapper #advice {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: advice;
+}
+
+body main .content-wrapper .top-effected {
+  display: -ms-grid;
+  display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 60px auto;
+      grid-template-areas: "title" "table";
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: top;
+  background-color: #353066;
+  border-radius: 8px;
+  min-width: 540px;
+  padding: 0px 10px;
+}
+
+body main .content-wrapper .top-effected .title-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: title;
+  background-color: #353066;
+  border-bottom: 1px solid #282155;
+}
+
+body main .content-wrapper .top-effected .title-section p {
+  font-size: 15px;
+  font-weight: bold;
+  color: #E8E8ED;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .title-section .select-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "case death recover";
+  padding: 0px;
+  border-radius: 5px;
+  border: 0.5px solid #8783A7;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .title-section .select-section .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #A8A4C5;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px 0px 0px 8px;
+  cursor: pointer;
+}
+
+body main .content-wrapper .top-effected .title-section .select-section .case {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: case;
+  background-color: #282155;
+  color: #2d71c6;
+  border-right: 0.5px solid #8783A7;
+}
+
+body main .content-wrapper .top-effected .title-section .select-section .deaths {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: death;
+  border-right: 0.5px solid #8783A7;
+}
+
+body main .content-wrapper .top-effected .title-section .select-section .recovered {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: recover;
+}
+
+body main .content-wrapper .top-effected .table-section {
+  grid-area: table;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 40px auto;
+      grid-template-rows: 40px auto;
+      grid-template-areas: "theader" "data";
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: table;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: theader;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #A8A4C5;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header #state {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header #recovered {
+  color: #72ae79;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header #deaths {
+  color: #a4456b;
+}
+
+body main .content-wrapper .top-effected .table-section .table-header #confirmed {
+  color: #2d71c6;
+}
+
+body main .content-wrapper .top-effected .table-section .table-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: data;
+  background-color: #353066;
+  margin-top: 10px;
+}
+
+body main .content-wrapper .top-effected .table-section .table-data p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #E8E8ED;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #353066;
+}
+
+body main .content-wrapper .top-effected .table-section .table-data #state-data {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+body main .content-wrapper .statistics-consult-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 2fr 1fr;
+      grid-template-rows: 2fr 1fr;
+      grid-template-areas: "status" "consult";
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: stats;
+  background-color: #3e396f;
+  border-radius: 8px;
+  grid-gap: 20px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section {
+  display: -ms-grid;
+  display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 60px auto;
+      grid-template-areas: "titlesec titlesec" "chartsec statssec";
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: titlesec;
+  border-radius: 8px;
+  grid-area: status;
+  background-color: #353066;
+  border-radius: 8px;
+  padding: 10px;
+  padding-top: 0px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: titlesec;
+  background-color: #353066;
+  border-radius: 8px 8px 0px 0px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section p {
+  font-size: 15px;
+  font-weight: bold;
+  color: #E8E8ED;
+  background-color: #353066;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section .select-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "weekly monthly";
+  padding: 0px;
+  border-radius: 5px;
+  border: 0.5px solid #8783A7;
+  background-color: #353066;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section .select-section .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #A8A4C5;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px 0px 0px 8px;
+  cursor: pointer;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section .select-section .monthly {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: monthly;
+  background-color: #282155;
+  color: #2d71c6;
+  border-right: 0.5px solid #8783A7;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .title-section .select-section .weekly {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: weekly;
+  border-right: 0.5px solid #8783A7;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .chart-container {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: chartsec;
+  background-color: #3e396f;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: statssec;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-areas: "top" "mid" "bot";
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3px 0px;
+  border-radius: 5px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .section .color-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 6px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .section .text-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #282155;
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+  padding: 5px;
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .section .text-content .top-text {
+  font-size: 1vmin;
+  font-weight: bold;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .section .text-content .bottom-num {
+  font-size: 2vmin;
+  font-weight: bold;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .top-section {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: top;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .top-section .color-container {
+  background-color: #2d71c6;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .top-section .text-content .bottom-num {
+  color: #2d71c6;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .middle-section {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: mid;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .middle-section .color-container {
+  background-color: #72ae79;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .middle-section .text-content .bottom-num {
+  color: #72ae79;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .lower-section {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: bot;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .lower-section .color-container {
+  background-color: #a4456b;
+}
+
+body main .content-wrapper .statistics-consult-section .statistics-section .stats-container .lower-section .text-content .bottom-num {
+  color: #a4456b;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border-radius: 8px;
+  padding: 10px;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: consult;
+  background-color: #353066;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .left-content {
+  width: 80%;
+  padding: 0px 10px;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .left-content .cons-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #E8E8ED;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .left-content .cons-text {
+  font-size: 12px;
+  color: #A8A4C5;
+  margin-bottom: 10px;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .left-content button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #282155;
+  background-color: #B2EAFF;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .right-illust {
+  position: absolute;
+  right: 0px;
+}
+
+body main .content-wrapper .statistics-consult-section .consult-section .right-illust img {
+  width: 150px;
+  height: 130px;
+}
+/*# sourceMappingURL=style.css.map */

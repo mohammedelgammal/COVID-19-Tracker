@@ -1,0 +1,632 @@
+@import 'mixins';
+@import 'colors';
+@import 'nav';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main";
+
+    background-color: $main;
+
+        header {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 100%;
+            grid-template-areas: 
+                "search user";
+            grid-area: header;
+            background-color: $main;
+
+                .search-container {
+                    @include centering;
+                    justify-content: flex-start;  
+                    background-color: $main;
+                    grid-area: search;
+                    padding-left: 20px;
+                    
+                        input {
+                            width: 80%;
+                            height: 40px;
+                            border-radius: 50px;
+                            padding-left: 40px;
+                            outline: none;
+                            border: none;
+                            background-color: $card;
+                            color: $card-text;
+                        }
+
+                        input::placeholder {
+                            color: $card-text;
+                        }
+
+                        svg {
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            z-index: 2;
+                            margin-left: 10px;
+
+                                path {
+                                    fill: $icon-nonactive;
+                                }
+                        }
+                }
+
+                .user-container {
+                    @include centering;
+                    justify-content: flex-end;    
+                    background-color: $main;
+                    grid-area: user;
+                    padding-right: 10px;
+
+                        .chat, .bell, .user-avatar {
+                            @include centering;
+                            width: 40px;
+                            height: 40px;
+                            background-color: $main;
+                            margin: 0px 10px;
+                            border-radius: 10px;
+                            cursor: pointer;
+
+                                svg {
+                                    width: 20px;
+                                    height: 20px;
+
+                                        path {
+                                            fill: $icon-nonactive;
+                                        }
+                                }
+                        }
+
+                        .user-avatar {
+                            justify-content: flex-start;    
+                            width: 60px;
+                            background-color: $card;
+
+                                img {
+                                    border-radius: 10px;
+                                    flex: 2;
+                                    width: 40px;
+                                    height: 40px;
+                                }                
+                        }
+
+                        .chat:hover, .bell:hover, .user-avatar:hover {
+                            background-color: $card;
+
+                                svg path {
+                                    fill: $icon-active;
+                                }
+                        }
+                }
+        }
+
+        main { 
+            background-color: $main;
+            grid-area: main;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 90px auto;
+            grid-template-areas: 
+                "select"
+                "wrapper";
+
+                .select-section {
+                    @include centering;
+                    padding: 0px 20px;
+                    grid-area: select;
+                    background-color: $main;
+
+                        .select-title {
+                            @include centering;
+                            justify-content: flex-start;
+                            background-color: $main;
+                            height: 100%;
+                            flex: 1;
+
+                                h1 {
+                                    font-size: 20px;
+                                    font-weight: bolder;
+                                    color: $text;
+                                }
+                        }
+                        .select-box-container {
+                            @include centering;
+                            justify-content: flex-end;
+                            height: 100%;
+                            flex: 1;
+                            background-color: $main;
+
+                                select {
+                                    width: 130px;
+                                    height: 40px;
+                                    background-color: $main;
+                                    border: 1px solid $icon-nonactive;
+                                    color: $card-text;
+                                    padding: 0px 8px;
+                                    border-radius: 5px;
+                                    outline: none;
+                                    margin-left: 10px;
+                                    cursor: pointer;
+                                }
+                        }
+
+                }
+            
+                .content-wrapper {
+                    grid-area: wrapper;
+                    background-color: $main;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr) 1.5fr;  
+                    grid-template-rows: 1fr 1.5fr; 
+                    grid-template-areas: 
+                        "confirmed active recovered decreased advice"
+                        "top top top stats stats";
+                    grid-row-gap: 20px;
+                    grid-column-gap: 15px;
+                    padding: 0px 20px 20px;
+        
+                        .status-card {
+                            @include centering;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            padding: 10px;
+                            border-radius: 8px;
+                            background-color: $card;
+
+                                .title {
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    color: $card-text;
+                                }
+
+                                .number {
+                                    @extend .title;
+                                    font-size: 30px;
+                                    color: $text;
+                                    font-weight: bold;
+                                    margin: 10px 0px;
+                                }
+                                
+                                .increment {
+                                    @include centering;
+
+                                        svg {
+                                            width: 13px;
+                                            height: 13px;
+                                            margin-right: 5px;
+                                        }
+
+                                        .value {
+                                            font-size: 15px;
+                                        }
+                                }
+
+                                .graph-container {
+                                    height: 50%;
+                                    width: 100%;
+                                }
+                        }
+                        
+                        
+                        #confirmed {
+                            grid-area: confirmed;
+                            
+                                .increment {
+                                    svg {
+                                        color: $confirmed;
+                                    }
+                                    .value {
+                                        color: $confirmed;
+                                    }
+                                }
+                        }
+                        
+                        #active {
+                            grid-area: active;
+                            
+                                .increment {
+                                    svg {
+                                        color: $active;
+                                    }
+                                    .value {
+                                        color: $active;
+                                    }
+                                }
+                        }
+
+                        #recovered {
+                            grid-area: recovered;
+                            
+                                .increment {
+                                    svg {
+                                        color: $recovered;
+                                    }
+                                    .value {
+                                        color: $recovered;
+                                    }
+                                }
+                        }
+
+                        #decreased {
+                            grid-area: decreased;
+                            
+                                .increment {
+                                    svg {
+                                        color: $deaths;
+                                    }
+                                    .value {
+                                        color: $deaths;
+                                    }
+                                }
+                        }
+
+                        #advice {
+                            grid-area: advice;
+                        }
+                                
+                        .top-effected {
+                            display: grid;
+                            grid-template-columns: 100%;
+                            grid-template-rows: 60px auto;
+                            grid-template-areas: 
+                                "title"
+                                "table";
+                            grid-area: top;
+                            background-color: $card;
+                            border-radius: 8px;
+                            min-width: 540px;
+                            padding: 0px 10px;
+
+                                .title-section {
+                                    @include centering;
+                                    justify-content: space-between;
+                                    grid-area: title;
+                                    background-color: $card;
+                                    border-bottom: 1px solid $sidebar;
+                                    
+
+                                        p {
+                                            font-size: 15px;
+                                            font-weight: bold;
+                                            color: $text;
+                                            background-color: $card;
+                                        }
+                                        .select-section {
+                                            display: grid;
+                                            grid-template-columns: auto auto auto;
+                                            grid-template-rows: 100%;
+                                            grid-template-areas: 
+                                                "case death recover";
+                                            padding: 0px;   
+                                            border-radius: 5px; 
+                                            border: 0.5px solid $icon-nonactive; 
+                                            background-color: $card; 
+                                            
+
+                                                .item {
+                                                    @include centering;
+                                                    color: $card-text;
+                                                    padding: 5px 10px;
+                                                    font-size: 12px;
+                                                    font-weight: bold;
+                                                    border-radius: 8px 0px 0px 8px;
+                                                    cursor: pointer;
+                                                }
+
+                                                .case {
+                                                    grid-area: case;
+                                                    background-color: $sidebar;
+                                                    color: $active;
+                                                    border-right: 0.5px solid $icon-nonactive;
+                                                }
+                                                .deaths {
+                                                    grid-area: death;
+                                                    border-right: 0.5px solid $icon-nonactive;
+                                                }
+                                                .recovered {
+                                                    grid-area: recover;
+                                                }
+                                        }
+                                }
+
+                                .table-section {
+                                    grid-area: table;
+                                    display: grid;
+                                    grid-template-columns: 100%;
+                                    grid-template-rows: 40px auto;
+                                    grid-template-areas: 
+                                        "theader"
+                                        "data";
+                                    grid-area: table;
+                                    background-color: $card;
+                                    
+
+                                        .table-header {
+                                            @include centering;
+                                            grid-area: theader;
+                                            background-color: $card;
+                                            
+
+                                                p {
+                                                    @include centering;
+                                                    font-size: 12px;
+                                                    font-weight: bold;
+                                                    color: $card-text;
+                                                    justify-content: flex-end;
+                                                    flex: 1;
+                                                    background-color: $card;
+                                                }
+
+                                                #state {
+                                                    justify-content: flex-start;
+                                                    flex: 2;
+                                                }
+                                                #recovered {
+                                                    color: $recovered;
+                                                }
+                                                #deaths {
+                                                    color: $confirmed
+                                                }
+                                                #confirmed {
+                                                    color: $active;
+                                                }
+                                        }
+
+                                        .table-data {
+                                            @include centering;
+                                            align-items: flex-start;
+                                            grid-area: data;
+                                            background-color: $card;
+                                            margin-top: 10px;
+
+                                                p {
+                                                    @include centering;
+                                                    font-size: 12px;
+                                                    font-weight: bold;
+                                                    color: $text;
+                                                    justify-content: flex-end;
+                                                    flex: 1;
+                                                    background-color: $card;
+                                                }
+
+                                                #state-data {
+                                                    justify-content: flex-start;
+                                                    flex: 2;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .statistics-consult-section {
+                            display: grid;
+                            grid-template-columns: 100%;
+                            grid-template-rows: 2fr 1fr;
+                            grid-template-areas: 
+                                "status"
+                                "consult";
+                            grid-area: stats;
+                            background-color: $main;
+                            border-radius: 8px;
+                            grid-gap: 20px;
+
+                                .statistics-section {
+                                    display: grid;
+                                    grid-template-columns: 2fr 1fr;
+                                    grid-template-rows: 60px auto;
+                                    grid-template-areas: 
+                                        "titlesec titlesec"
+                                        "chartsec statssec";
+                                    grid-area: titlesec;
+                                    border-radius: 8px;
+                                    grid-area: status;
+                                    background-color: $card;
+                                    border-radius: 8px;
+                                    padding: 10px;
+                                    padding-top: 0px;
+
+                                            .title-section {
+                                                @include centering;
+                                                justify-content: space-between;
+                                                grid-area: titlesec;
+                                                background-color: $card;
+                                                border-radius: 8px 8px 0px 0px;
+                                                
+                                                p {
+                                                    font-size: 15px;
+                                                    font-weight: bold;
+                                                    color: $text;
+                                                    background-color: $card;
+                                                } 
+
+                                                .select-section {
+                                                    display: grid;
+                                                    grid-template-columns: auto auto auto;
+                                                    grid-template-rows: 100%;
+                                                    grid-template-areas: 
+                                                        "weekly monthly";
+                                                    padding: 0px;   
+                                                    border-radius: 5px; 
+                                                    border: 0.5px solid $icon-nonactive; 
+                                                    background-color: $card;
+
+                                                        .item {
+                                                            @include centering;
+                                                            color: $card-text;
+                                                            padding: 5px 10px;
+                                                            font-size: 12px;
+                                                            font-weight: bold;
+                                                            border-radius: 8px 0px 0px 8px;
+                                                            cursor: pointer;
+                                                        }
+                                                    
+                                                        .monthly {
+                                                            grid-area: monthly;
+                                                            background-color: $sidebar;
+                                                            color: $active;
+                                                            border-right: 0.5px solid $icon-nonactive;
+                                                        } 
+
+                                                        .weekly {
+                                                            grid-area: weekly;
+                                                            border-right: 0.5px solid $icon-nonactive;
+                                                        }
+                                                } 
+                                            }    
+
+                                            .chart-container {
+                                                grid-area: chartsec;
+                                                background-color: $main;
+                                                margin-right: 10px;
+                                                border-radius: 5px;
+                                            }
+
+                                            .stats-container {
+                                                display: grid;
+                                                grid-area: statssec;
+                                                grid-template-columns: 100%;
+                                                grid-template-rows: repeat(3, 1fr);
+                                                grid-template-areas: 
+                                                    "top"
+                                                    "mid"
+                                                    "bot";
+
+
+                                                    .section {
+                                                        @include centering;
+                                                        margin: 3px 0px;
+                                                        border-radius: 5px;
+
+                                                            .color-container {
+                                                                @include centering;
+                                                                height: 100%;
+                                                                width: 6px;
+                                                                border-radius: 5px 0px 0px 5px;
+                                                            }
+                                                            .text-content {
+                                                                @include centering;
+                                                                flex-direction: column;
+                                                                align-items: flex-start;
+                                                                background-color: $sidebar;
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                font-size: 10px;
+                                                                padding: 5px;
+                                                                color: white;
+                                                                border-radius: 0px 5px 5px 0px;
+
+                                                                    .top-text {
+                                                                        font-size: 1vmin;
+                                                                        font-weight: bold;
+                                                                    }
+
+                                                                    .bottom-num {
+                                                                        font-size: 2vmin;
+                                                                        font-weight: bold;
+                                                                    }
+                                                            }
+
+                                                    }
+
+                                                    .top-section {
+                                                        grid-area: top;
+
+                                                            .color-container {
+                                                                background-color: $active;
+                                                            }
+                                                            .text-content .bottom-num {
+                                                                color: $active;
+                                                            }
+                                                    }
+                                                    .middle-section {
+                                                        grid-area: mid;
+
+                                                            .color-container {
+                                                                background-color: $recovered;
+                                                            }
+                                                            .text-content .bottom-num {
+                                                                color: $recovered;
+                                                            }
+                                                    }
+                                                    .lower-section {
+                                                        grid-area: bot;
+
+                                                            .color-container {
+                                                                background-color: $confirmed;
+                                                            }
+                                                            .text-content .bottom-num {
+                                                                color: $confirmed;
+                                                            }
+                                                    }
+                                            }
+                                                    
+                                        
+                                }
+                                .consult-section {
+                                    @include centering;
+                                    justify-content: flex-start;
+                                    border-radius: 8px;
+                                    padding: 10px;
+                                    grid-area: consult;
+                                    background-color: $card;
+
+                                        .left-content {
+                                            width: 80%;
+                                            padding: 0px 10px;
+
+                                                .cons-title {
+                                                    font-size: 16px;
+                                                    font-weight: bold;
+                                                    color: $text;
+                                                }
+                                                
+                                                .cons-text {
+                                                    font-size: 12px;
+                                                    color: $card-text;
+                                                    margin-bottom: 10px;
+                                                }
+                                                button {
+                                                    @include centering;
+                                                    width: 100px;
+                                                    height: 30px;
+                                                    font-size: 12px;
+                                                    font-weight: bold;
+                                                    color: $sidebar;
+                                                    background-color: $button;
+                                                    border: none;
+                                                    outline: none;
+                                                    border-radius: 5px;
+                                                }
+                                        }
+                                        .right-illust {
+                                            position: absolute;
+                                            right: 0px;
+
+                                                img {
+                                                    width: 150px;
+                                                    height: 130px;
+                                                }
+                                        }
+                                }
+
+                        }
+                        
+
+                }
+        
+        }
+}
+
